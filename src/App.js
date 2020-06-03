@@ -9,7 +9,7 @@ function App() {
   return (
   <div>
     <h1>hello!!</h1>
-    <Food fav="test"/>
+    <Food fav="test" something={true} papapapa={['hello',1,2,3,4,true]}/>
   </div>
   )
 }
