@@ -1,28 +1,24 @@
 import React from 'react';
 
 class App extends React.Component {
+
   state = {
-    count: 0,
+    isLoading: true,
+    movies: [],
   };
 
-  add = () => {
-    this.setState(current => ({
-      count: current.count +1,
-    }));
-  }
-
-  minus = () => {
-    this.setState(current => ({
-      count: current.count -1,
-    }));
+  componentDidMount(){
+    //영화 데이터 로딩!
+    setTimeout(()=> {
+        this.setState({isLoading:false});
+      },6000);
   }
 
   render() {
+    const {isLoading} = this.state;
     return (
       <div>
-        <h1>im a class Component is: {this.state.count}</h1>
-        <button onClick={this.add}>add</button>
-        <button onClick={this.minus}>Minus</button>
+        {isLoading ? 'Loding...': 'We are ready'}
       </div>
     );
   }
