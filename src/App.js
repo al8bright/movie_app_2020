@@ -1,22 +1,21 @@
 import React from 'react';
-import Axios from 'axios';
-import Movie from './routes/Home';
 import './App.css';
+import {HashRouter, Route} from 'react-router-dom';
+import About from './routes/About';
+import Home from './routes/Home';
+import Navigation from './components/Navigation';
 
-class App extends React.Component {
-
-  state = {
-    isLoading: true,
-    movies: [],
-  };
-
-
-  render() {
-    const {isLoading,movies} = this.state;
+function App() {
     return (
-      <Home />
-    );
-  }
+      <HashRouter>
+        <Navigation></Navigation>
+        <Route path="/" exact={true} component={Home}>
+        </Route>
+
+        <Route path="/about" component={About}>
+        </Route>
+      </HashRouter>
+    ) 
 }
 
 export default App;
